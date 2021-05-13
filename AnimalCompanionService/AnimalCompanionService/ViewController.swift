@@ -18,8 +18,8 @@ class ViewController: UIViewController, XMLParserDelegate, UITableViewDataSource
     var elements = NSMutableDictionary()
     var element = NSString()
     //저장 문자열 변수
-    var title1 = NSMutableString()
-    var date = NSMutableString()
+    var kind = NSMutableString()
+    var local = NSMutableString()
     
     var imageurl = NSMutableString()
 
@@ -50,10 +50,10 @@ class ViewController: UIViewController, XMLParserDelegate, UITableViewDataSource
         {
             elements = NSMutableDictionary()
             elements = [:]
-            title1 = NSMutableString()
-            title1 = ""
-            date = NSMutableString()
-            date = ""
+            kind = NSMutableString()
+            kind = ""
+            local = NSMutableString()
+            local = ""
             imageurl = NSMutableString()
             imageurl = ""
         }
@@ -64,12 +64,12 @@ class ViewController: UIViewController, XMLParserDelegate, UITableViewDataSource
     {
         //국회의원 이름
         if element.isEqual(to: "kindCd"){
-            title1.append(string)
+            kind.append(string)
             //국회의원 지역구
         } else if element.isEqual(to: "orgNm"){
-            date.append(string)
+            local.append(string)
             //국회의원 이미지url
-        } else if element.isEqual(to: "profile"){
+        } else if element.isEqual(to: "popfile"){
             imageurl.append(string)
         }
         //if element.isEqual(to: "title"){
@@ -84,11 +84,11 @@ class ViewController: UIViewController, XMLParserDelegate, UITableViewDataSource
                 namespaceURI: String?, qualifiedName qName: String?)
     {
         if(elementName as NSString).isEqual(to : "item"){
-            if !title1.isEqual(nil){
-                elements.setObject(title1, forKey: "title" as NSCopying)
+            if !kind.isEqual(nil){
+                elements.setObject(kind, forKey: "kind" as NSCopying)
             }
-            if !date.isEqual(nil){
-                elements.setObject(date, forKey: "date" as NSCopying)
+            if !local.isEqual(nil){
+                elements.setObject(local, forKey: "local" as NSCopying)
             }
             //국회의원 사진 url
             if !imageurl.isEqual(nil){
@@ -109,8 +109,8 @@ class ViewController: UIViewController, XMLParserDelegate, UITableViewDataSource
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        cell.textLabel?.text = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "title") as! NSString as String
-        cell.detailTextLabel?.text = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "date") as! NSString as String
+        cell.textLabel?.text = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "kind") as! NSString as String
+        cell.detailTextLabel?.text = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "local") as! NSString as String
         //국회의원 사진 url을 다운로드하여 표시
         if let url = URL(string: (posts.object(at: indexPath.row) as AnyObject).value(forKey: "imageurl") as! NSString as String)
         {
