@@ -55,7 +55,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="PX4-b2-nGm"/>
+                    <navigationItem key="navigationItem" id="PX4-b2-nGm">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="5dA-Yd-pgf">
+                            <connections>
+                                <segue destination="3VU-b9-OIS" kind="show" identifier="segueToInformationView" id="nCw-IM-6qg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tbData" destination="8IJ-L3-qUH" id="eg1-FG-OoP"/>
                     </connections>
@@ -64,11 +70,96 @@
             </objects>
             <point key="canvasLocation" x="1849.2753623188407" y="69.642857142857139"/>
         </scene>
+        <!--동물 정보-->
+        <scene sceneID="xcm-Lm-Jf4">
+            <objects>
+                <tableViewController id="LFh-sT-3kS" customClass="AnimalInfromationViewController" customModule="AnimalCompanionService" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Xxt-tA-2XC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="Bu9-aE-0DA" detailTextLabel="wi8-xp-3rR" style="IBUITableViewCellStyleSubtitle" id="ZMp-or-v3n">
+                                <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZMp-or-v3n" id="8Hp-Qi-hkL">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bu9-aE-0DA">
+                                            <rect key="frame" x="20" y="10" width="33" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wi8-xp-3rR">
+                                            <rect key="frame" x="20" y="31.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="LFh-sT-3kS" id="2XY-pu-XFG"/>
+                            <outlet property="delegate" destination="LFh-sT-3kS" id="AOH-kB-jry"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="동물 정보" id="xkK-T8-Ce2">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="wOV-Jh-SXz">
+                            <connections>
+                                <segue destination="wnm-qK-TL7" kind="show" id="n8K-SJ-LD2"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Map" id="f94-dl-NFO">
+                            <connections>
+                                <segue destination="mY0-g7-mHp" kind="show" identifier="segueToMapView" id="YtA-cJ-Jqg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tbData" destination="Xxt-tA-2XC" id="hw3-3V-JtB"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Km-1d-arn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3831.884057971015" y="69.642857142857139"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="H6E-tC-nR1">
+            <objects>
+                <viewController id="mY0-g7-mHp" customClass="MapViewController" customModule="AnimalCompanionService" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3bA-BL-tKY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UAN-n5-RUh">
+                                <rect key="frame" x="0.0" y="215" width="414" height="556"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="csX-IA-kta"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Y0Y-Gv-dUM"/>
+                    <connections>
+                        <outlet property="mapView" destination="UAN-n5-RUh" id="uZz-I8-Trn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z2T-v6-sn7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3831.884057971015" y="809.59821428571422"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Yh9-SE-eb0">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wnm-qK-TL7" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="ipP-YL-4qj"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dgg-Fa-eQj">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -81,6 +172,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WlM-Xn-frw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="939.13043478260875" y="69.642857142857139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="FGI-wA-Gvx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3VU-b9-OIS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Vf9-UO-L6b"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Buu-Ei-PZg">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="LFh-sT-3kS" kind="relationship" relationship="rootViewController" id="fbA-hQ-rYX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NwT-MU-Adu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2921.739130434783" y="69.642857142857139"/>
         </scene>
     </scenes>
     <resources>

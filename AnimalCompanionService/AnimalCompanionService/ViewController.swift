@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController, XMLParserDelegate, UITableViewDataSource {
     @IBOutlet weak var tbData: UITableView!
+
     
     //xml파일을 다운로드 및 파싱하는 오브젝트
     var parser = XMLParser()
@@ -23,6 +24,7 @@ class ViewController: UIViewController, XMLParserDelegate, UITableViewDataSource
     
     var imageurl = NSMutableString()
 
+    var url : String = "http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?ServiceKey=14LZYq3Lnyj3IOVhgRlTNzGTD8cON64czIilWCGmI8%2BHRGck4fpCi%2F3v54yCMngqYnXUPy13i2jE7lvBYS4ZKQ%3D%3D"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +37,7 @@ class ViewController: UIViewController, XMLParserDelegate, UITableViewDataSource
     {
         posts = []
         //공공데이터포털국회의원정보
-         
+        
         parser = XMLParser(contentsOf:(URL(string:"http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?ServiceKey=14LZYq3Lnyj3IOVhgRlTNzGTD8cON64czIilWCGmI8%2BHRGck4fpCi%2F3v54yCMngqYnXUPy13i2jE7lvBYS4ZKQ%3D%3D"))!)!
         parser.delegate = self
         parser.parse()
@@ -120,6 +122,17 @@ class ViewController: UIViewController, XMLParserDelegate, UITableViewDataSource
             }
         }
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.identifier == "ssegueToInformationView" {
+            if let navController = segue.destination as? UINavigationController{
+                if let animalInfromationViewController = navController.topViewController as? AnimalInfromationViewController{
+                    //animalInfromationViewController.url = url + sgguCd
+                    animalInfromationViewController.url = url
+                }
+            }
+        }
     }
 }
 
