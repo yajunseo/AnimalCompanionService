@@ -125,14 +125,25 @@ class ViewController: UIViewController, XMLParserDelegate, UITableViewDataSource
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        if segue.identifier == "ssegueToInformationView" {
+        if segue.identifier == "segueToFindView" {
             if let navController = segue.destination as? UINavigationController{
-                if let animalInfromationViewController = navController.topViewController as? AnimalInfromationViewController{
+                if let findController = navController.topViewController as? FindController{
                     //animalInfromationViewController.url = url + sgguCd
-                    animalInfromationViewController.url = url
+                    findController.url = url
                 }
             }
         }
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+//        if segue.identifier == "ssegueToInformationView" {
+//            if let navController = segue.destination as? UINavigationController{
+//                if let animalInfromationViewController = navController.topViewController as? AnimalInfromationViewController{
+//                    //animalInfromationViewController.url = url + sgguCd
+//                    animalInfromationViewController.url = url
+//                }
+//            }
+//        }
+//    }
 }
 

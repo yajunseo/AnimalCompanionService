@@ -13,7 +13,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AnimalCompanionService" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8IJ-L3-qUH">
@@ -58,7 +58,7 @@
                     <navigationItem key="navigationItem" id="PX4-b2-nGm">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="5dA-Yd-pgf">
                             <connections>
-                                <segue destination="3VU-b9-OIS" kind="show" identifier="segueToInformationView" id="nCw-IM-6qg"/>
+                                <segue destination="0cE-V7-KTt" kind="show" identifier="segueToFindView" id="FJa-Z0-ZWN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -75,7 +75,7 @@
             <objects>
                 <tableViewController id="LFh-sT-3kS" customClass="AnimalInfromationViewController" customModule="AnimalCompanionService" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Xxt-tA-2XC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -112,7 +112,7 @@
                     <navigationItem key="navigationItem" title="동물 정보" id="xkK-T8-Ce2">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="wOV-Jh-SXz">
                             <connections>
-                                <segue destination="wnm-qK-TL7" kind="show" id="n8K-SJ-LD2"/>
+                                <segue destination="0cE-V7-KTt" kind="show" id="Ljn-n2-x1G"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Map" id="f94-dl-NFO">
@@ -127,14 +127,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Km-1d-arn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3831.884057971015" y="69.642857142857139"/>
+            <point key="canvasLocation" x="6526.0869565217399" y="69.642857142857139"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="H6E-tC-nR1">
             <objects>
                 <viewController id="mY0-g7-mHp" customClass="MapViewController" customModule="AnimalCompanionService" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3bA-BL-tKY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UAN-n5-RUh">
@@ -152,7 +152,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z2T-v6-sn7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3831.884057971015" y="809.59821428571422"/>
+            <point key="canvasLocation" x="6526" y="853"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Yh9-SE-eb0">
@@ -161,7 +161,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="ipP-YL-4qj"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dgg-Fa-eQj">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -173,6 +173,97 @@
             </objects>
             <point key="canvasLocation" x="939.13043478260875" y="69.642857142857139"/>
         </scene>
+        <!--Find Controller-->
+        <scene sceneID="Cv5-JH-elG">
+            <objects>
+                <viewController id="EDy-Rk-ioy" customClass="FindController" customModule="AnimalCompanionService" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mBk-w1-KMe" customClass="find">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rjz-bp-USB">
+                                <rect key="frame" x="30" y="162" width="226" height="85"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="mBk-w1-KMe" id="oZf-Pm-pbH"/>
+                                    <outlet property="delegate" destination="mBk-w1-KMe" id="QTE-uj-Mpc"/>
+                                </connections>
+                            </pickerView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="시도" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Odr-VJ-Qlk">
+                                <rect key="frame" x="30" y="120" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <pickerView tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o29-4u-axy">
+                                <rect key="frame" x="20" y="297" width="226" height="85"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="mBk-w1-KMe" id="qEo-Oy-TPJ"/>
+                                    <outlet property="delegate" destination="mBk-w1-KMe" id="K07-Pk-RsR"/>
+                                </connections>
+                            </pickerView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="시군구" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ecy-4A-qWy">
+                                <rect key="frame" x="20" y="255" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <pickerView tag="2" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YK1-9Z-LiE">
+                                <rect key="frame" x="20" y="432" width="226" height="85"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="mBk-w1-KMe" id="hE4-Aa-agw"/>
+                                    <outlet property="delegate" destination="mBk-w1-KMe" id="Tlu-Bi-oO5"/>
+                                </connections>
+                            </pickerView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="보호소" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mcZ-2G-uzy">
+                                <rect key="frame" x="20" y="390" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <pickerView tag="3" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j26-Sd-WOB">
+                                <rect key="frame" x="20" y="567" width="226" height="85"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="mBk-w1-KMe" id="OFA-Uy-7dN"/>
+                                    <outlet property="delegate" destination="mBk-w1-KMe" id="29u-2t-gO2"/>
+                                </connections>
+                            </pickerView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="품종" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tb4-49-oc9">
+                                <rect key="frame" x="20" y="525" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hfe-bO-kOq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="bCx-ZS-nJD">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="d0q-i3-uf7">
+                            <connections>
+                                <segue destination="wnm-qK-TL7" kind="show" id="cA8-12-Laj"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="d7L-vH-EzF">
+                            <connections>
+                                <segue destination="3VU-b9-OIS" kind="show" identifier="segueToInformationView" id="O7M-uU-gY4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="pickerView1" destination="Rjz-bp-USB" id="tSl-qt-pH0"/>
+                        <outlet property="pickerView2" destination="o29-4u-axy" id="pwM-X4-aUM"/>
+                        <outlet property="pickerView3" destination="YK1-9Z-LiE" id="rJu-Av-Gfl"/>
+                        <outlet property="pickerView4" destination="j26-Sd-WOB" id="ekF-a5-Aey"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Qf-9a-6IJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4271.0144927536239" y="67.633928571428569"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="FGI-wA-Gvx">
             <objects>
@@ -180,7 +271,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Vf9-UO-L6b"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Buu-Ei-PZg">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -190,9 +281,32 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NwT-MU-Adu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2921.739130434783" y="69.642857142857139"/>
+            <point key="canvasLocation" x="5557.971014492754" y="69.642857142857139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sgH-50-NPz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0cE-V7-KTt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="gnC-2H-J28"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ed6-LQ-TNe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="EDy-Rk-ioy" kind="relationship" relationship="rootViewController" id="aMi-Kd-bGX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fee-9e-e2f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3360.8695652173915" y="67.633928571428569"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="O7M-uU-gY4"/>
+        <segue reference="Ljn-n2-x1G"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
