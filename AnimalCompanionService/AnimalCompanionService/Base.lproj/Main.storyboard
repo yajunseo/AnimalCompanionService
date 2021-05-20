@@ -182,61 +182,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rjz-bp-USB">
-                                <rect key="frame" x="30" y="162" width="226" height="85"/>
+                                <rect key="frame" x="30" y="188" width="353" height="176"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="mBk-w1-KMe" id="oZf-Pm-pbH"/>
                                     <outlet property="delegate" destination="mBk-w1-KMe" id="QTE-uj-Mpc"/>
                                 </connections>
                             </pickerView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="시도" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Odr-VJ-Qlk">
-                                <rect key="frame" x="30" y="120" width="97" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="시도" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Odr-VJ-Qlk">
+                                <rect key="frame" x="159" y="126" width="97" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <pickerView tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o29-4u-axy">
-                                <rect key="frame" x="20" y="297" width="226" height="85"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dNG-Tw-l82">
+                                <rect key="frame" x="86" y="494" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLj-7k-s1h">
+                                <rect key="frame" x="70" y="387" width="78" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="음성인식시작"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="mBk-w1-KMe" id="qEo-Oy-TPJ"/>
-                                    <outlet property="delegate" destination="mBk-w1-KMe" id="K07-Pk-RsR"/>
+                                    <action selector="startTranscribing:" destination="EDy-Rk-ioy" eventType="touchUpInside" id="4Xy-cL-vqD"/>
                                 </connections>
-                            </pickerView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="시군구" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ecy-4A-qWy">
-                                <rect key="frame" x="20" y="255" width="97" height="34"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e49-30-y0p">
+                                <rect key="frame" x="271" y="387" width="65" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <pickerView tag="2" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YK1-9Z-LiE">
-                                <rect key="frame" x="20" y="432" width="226" height="85"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="음성인식끝"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="mBk-w1-KMe" id="hE4-Aa-agw"/>
-                                    <outlet property="delegate" destination="mBk-w1-KMe" id="Tlu-Bi-oO5"/>
+                                    <action selector="stopTranscribing:" destination="EDy-Rk-ioy" eventType="touchUpInside" id="85R-uk-bb1"/>
                                 </connections>
-                            </pickerView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="보호소" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mcZ-2G-uzy">
-                                <rect key="frame" x="20" y="390" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <pickerView tag="3" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j26-Sd-WOB">
-                                <rect key="frame" x="20" y="567" width="226" height="85"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="mBk-w1-KMe" id="OFA-Uy-7dN"/>
-                                    <outlet property="delegate" destination="mBk-w1-KMe" id="29u-2t-gO2"/>
-                                </connections>
-                            </pickerView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="품종" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tb4-49-oc9">
-                                <rect key="frame" x="20" y="525" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hfe-bO-kOq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -254,10 +236,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="myTextView" destination="dNG-Tw-l82" id="1rO-q9-woP"/>
                         <outlet property="pickerView1" destination="Rjz-bp-USB" id="tSl-qt-pH0"/>
-                        <outlet property="pickerView2" destination="o29-4u-axy" id="pwM-X4-aUM"/>
-                        <outlet property="pickerView3" destination="YK1-9Z-LiE" id="rJu-Av-Gfl"/>
-                        <outlet property="pickerView4" destination="j26-Sd-WOB" id="ekF-a5-Aey"/>
+                        <outlet property="stopButton" destination="e49-30-y0p" id="5aT-aM-amd"/>
+                        <outlet property="transcribeButton" destination="kLj-7k-s1h" id="Z8p-al-GOg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Qf-9a-6IJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -308,6 +290,9 @@
         <segue reference="Ljn-n2-x1G"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
