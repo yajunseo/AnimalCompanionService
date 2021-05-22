@@ -12,7 +12,11 @@ class FindController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var sido : String = ""
     var sigungu : String = ""
 
-    var url : String?
+    var url : String = "http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?upr_cd="
+    
+    var serviceKey : String =
+        "&ServiceKey=14LZYq3Lnyj3IOVhgRlTNzGTD8cON64czIilWCGmI8%2BHRGck4fpCi%2F3v54yCMngqYnXUPy13i2jE7lvBYS4ZKQ%3D%3D"
+    
     @IBOutlet weak var pickerView1: UIPickerView!
     @IBOutlet weak var transcribeButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
@@ -133,6 +137,17 @@ class FindController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 sido = "6420000"
             }
             
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.identifier == "segueToInformationView" {
+            if let navController = segue.destination as? UINavigationController{
+                if let animalInformationController = navController.topViewController as? AnimalInfromationViewController{
+                    //animalInfromationViewController.url = url + sgguCd
+                    animalInformationController.url = url + sido + serviceKey
+                }
+            }
         }
     }
     

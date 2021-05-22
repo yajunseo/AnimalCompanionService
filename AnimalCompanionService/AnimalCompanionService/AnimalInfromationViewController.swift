@@ -26,6 +26,8 @@ class AnimalInfromationViewController: UITableViewController, XMLParserDelegate 
     //위도 경도 좌표 변수
     var XPos = NSMutableString()
     var YPos = NSMutableString()
+    var imageurl = NSMutableString()
+    
     
     var hospitalname = ""
     var hospitalname_utf8 = ""
@@ -59,7 +61,6 @@ class AnimalInfromationViewController: UITableViewController, XMLParserDelegate 
     func beginParsing()
     {
         posts = []
-        url = "http://apis.data.go.kr/B551182/hospInfoService/getHospBasisList?pageNo=1&numOfRows=10&serviceKey=sea100UMmw23Xycs33F1EQnumONR%2F9ElxBLzkilU9Yr1oT4TrCot8Y2p0jyuJP72x9rG9D8CN5yuEs6AS2sAiw%3D%3D&sidoCd=110000&sgguCd="
         parser = XMLParser(contentsOf:(URL(string:url!))!)!
         parser.delegate = self
         parser.parse()
@@ -83,22 +84,27 @@ class AnimalInfromationViewController: UITableViewController, XMLParserDelegate 
             XPos = ""
             YPos = NSMutableString()
             YPos = ""
+            
+            imageurl = NSMutableString()
+            imageurl = ""
         }
     }
     
     //title과 pubDate을 발견하면 title1과 date에 완성한다.
     func parser(_ parser: XMLParser, foundCharacters string: String)
     {
-        if element.isEqual(to: "yadmNm"){
+        if element.isEqual(to: "kindCd"){
             yadmNm.append(string)
-        } else if element.isEqual(to: "addr"){
+        } else if element.isEqual(to: "orgNm"){
             addr.append(string)
         }
         //위도 경도
-        else if element.isEqual(to: "XPos"){
+        else if element.isEqual(to: "orgNm"){
             XPos.append(string)
-        }else if element.isEqual(to: "YPos"){
+        }else if element.isEqual(to: "orgNm"){
             YPos.append(string)
+        }else if element.isEqual(to: "popfile"){
+            imageurl.append(string)
         }
     }
     
@@ -109,19 +115,21 @@ class AnimalInfromationViewController: UITableViewController, XMLParserDelegate 
     {
         if(elementName as NSString).isEqual(to : "item"){
             if !yadmNm.isEqual(nil){
-                elements.setObject(yadmNm, forKey: "yadmNm" as NSCopying)
+                elements.setObject(yadmNm, forKey: "kindCd" as NSCopying)
             }
             if !addr.isEqual(nil){
-                elements.setObject(addr, forKey: "addr" as NSCopying)
+                elements.setObject(addr, forKey: "orgNm" as NSCopying)
             }
             //위도 경도
             if !XPos.isEqual(nil){
-                elements.setObject(XPos, forKey: "XPos" as NSCopying)
+                elements.setObject(XPos, forKey: "orgNm" as NSCopying)
             }
             if !YPos.isEqual(nil){
-                elements.setObject(YPos, forKey: "YPos" as NSCopying)
+                elements.setObject(YPos, forKey: "orgNm" as NSCopying)
             }
-            
+            if !imageurl.isEqual(nil){
+                elements.setObject(imageurl, forKey: "imageurl" as NSCopying)
+            }
             posts.add(elements)
         }
     }
@@ -131,8 +139,16 @@ class AnimalInfromationViewController: UITableViewController, XMLParserDelegate 
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        cell.textLabel?.text = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "yadmNm") as! NSString as String
-        cell.detailTextLabel?.text = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "addr") as! NSString as String
+        cell.textLabel?.text = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "kindCd") as! NSString as String
+        cell.detailTextLabel?.text = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "orgNm") as! NSString as String
+        
+        if let url = URL(string: (posts.object(at: indexPath.row) as AnyObject).value(forKey: "imageurl") as! NSString as String)
+        {
+            if let data = try? Data(contentsOf: url)
+            {
+                cell.imageView?.image = UIImage(data: data)
+            }
+        }
         return cell
     }
     

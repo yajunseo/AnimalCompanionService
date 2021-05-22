@@ -10,7 +10,26 @@ import UIKit
 class ViewController: UIViewController, XMLParserDelegate, UITableViewDataSource {
     @IBOutlet weak var tbData: UITableView!
 
+    @IBAction func dogTab(_ sender: Any) {
+        selectKind = "개"
+        parser.delegate = self
+        parser.parse()
+        tbData!.reloadData()
+    }
+    @IBAction func catTab(_ sender: Any) {
+        selectKind = "고양이"
+        parser.delegate = self
+        parser.parse()
+        tbData!.reloadData()
+    }
+    @IBAction func defaultTab(_ sender: Any) {
+        selectKind = "기타"
+        parser.delegate = self
+        parser.parse()
+        tbData!.reloadData()
+    }
     
+    var selectKind : String = "개"
     //xml파일을 다운로드 및 파싱하는 오브젝트
     var parser = XMLParser()
     //feed 데이터를 저장하는 mutable array
@@ -66,8 +85,20 @@ class ViewController: UIViewController, XMLParserDelegate, UITableViewDataSource
     {
         //국회의원 이름
         if element.isEqual(to: "kindCd"){
+//            if(selectKind == "개"){
+//                if (string == "개"){
+//                    kind.append(string)
+//                }
+//            }else if(selectKind == "고양이"){
+//                if (string == "고양이"){
+//                    kind.append(string)
+//                }
+//            }else if(selectKind == "기타"){
+//                if (string != "개" && string != "고양이"){
+//                    kind.append(string)
+//                }
+//            }
             kind.append(string)
-            //국회의원 지역구
         } else if element.isEqual(to: "orgNm"){
             local.append(string)
             //국회의원 이미지url
