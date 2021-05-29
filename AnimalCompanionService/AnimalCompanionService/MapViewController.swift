@@ -25,10 +25,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     func loadInitialData() {
         // 1. PublicArt.json 파일을 읽어서 data에 저장
         for post in posts{
-            let yadmNm = (post as AnyObject).value(forKey: "yadmNm") as! NSString as String
-            let addr = (post as AnyObject).value(forKey: "addr") as! NSString as String
-            let XPos = (post as AnyObject).value(forKey: "XPos") as! NSString as String
-            let YPos = (post as AnyObject).value(forKey: "YPos") as! NSString as String
+            let yadmNm = (post as AnyObject).value(forKey: "local") as! NSString as String
+            let addr = (post as AnyObject).value(forKey: "local") as! NSString as String
+            let XPos = (post as AnyObject).value(forKey: "local") as! NSString as String
+            let YPos = (post as AnyObject).value(forKey: "local") as! NSString as String
             let lat = (YPos as NSString).doubleValue
             let lon = (XPos as NSString).doubleValue
             let hospital = Hospital(title: yadmNm, locationName: addr, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon))

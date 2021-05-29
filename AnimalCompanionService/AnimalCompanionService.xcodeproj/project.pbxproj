@@ -16,6 +16,8 @@
 		A1DB9CD72650FFE7007E8C27 /* AnimalInfromationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB9CD62650FFE7007E8C27 /* AnimalInfromationViewController.swift */; };
 		A1DB9CDE26510438007E8C27 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB9CDD26510438007E8C27 /* MapViewController.swift */; };
 		A1DB9CE526514B12007E8C27 /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB9CE426514B12007E8C27 /* Animal.swift */; };
+		A1DC18152662774F00BF470E /* DetailAnimalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC18142662774F00BF470E /* DetailAnimalController.swift */; };
+		A1DC181D2662B4A300BF470E /* Animal2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC181C2662B4A300BF470E /* Animal2ViewController.swift */; };
 		A1F40C622654DDD800C9C91C /* FindController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F40C612654DDD800C9C91C /* FindController.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +33,8 @@
 		A1DB9CD62650FFE7007E8C27 /* AnimalInfromationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalInfromationViewController.swift; sourceTree = "<group>"; };
 		A1DB9CDD26510438007E8C27 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		A1DB9CE426514B12007E8C27 /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
+		A1DC18142662774F00BF470E /* DetailAnimalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAnimalController.swift; sourceTree = "<group>"; };
+		A1DC181C2662B4A300BF470E /* Animal2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal2ViewController.swift; sourceTree = "<group>"; };
 		A1F40C612654DDD800C9C91C /* FindController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,6 +79,8 @@
 				A1DB9CDD26510438007E8C27 /* MapViewController.swift */,
 				A1DB9CE426514B12007E8C27 /* Animal.swift */,
 				A1F40C612654DDD800C9C91C /* FindController.swift */,
+				A1DC18142662774F00BF470E /* DetailAnimalController.swift */,
+				A1DC181C2662B4A300BF470E /* Animal2ViewController.swift */,
 			);
 			path = AnimalCompanionService;
 			sourceTree = "<group>";
@@ -150,6 +156,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A19CDC13264D01000047BB1A /* ViewController.swift in Sources */,
+				A1DC181D2662B4A300BF470E /* Animal2ViewController.swift in Sources */,
+				A1DC18152662774F00BF470E /* DetailAnimalController.swift in Sources */,
 				A19CDC0F264D01000047BB1A /* AppDelegate.swift in Sources */,
 				A19CDC11264D01000047BB1A /* SceneDelegate.swift in Sources */,
 				A1F40C622654DDD800C9C91C /* FindController.swift in Sources */,
