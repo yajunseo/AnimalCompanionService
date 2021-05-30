@@ -9,9 +9,13 @@ import UIKit
 
 class AnimalInfromationViewController: UITableViewController, XMLParserDelegate {
    
-    @IBOutlet weak var tbData: UITableView!
+    
+    @IBOutlet var tbData: UITableView!
+    
     
     var url : String?
+    var sido1 : String?
+    var serviceKey1 : String?
     
     //xml파일을 다운로드 및 파싱하는 오브젝트
     var parser = XMLParser()
@@ -161,21 +165,28 @@ class AnimalInfromationViewController: UITableViewController, XMLParserDelegate 
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        if segue.identifier == "segueToMapView" {
-            if let mapViewController = segue.destination as? MapViewController{
-                mapViewController.posts = posts
-            }
-        }
+//        if segue.identifier == "segueToMapView" {
+//            if let mapViewController = segue.destination as? MapViewController{
+//                mapViewController.posts = posts
+//            }
+//        }
         
         if segue.identifier == "segueToAnimalDetail"{
             if let cell = sender as? UITableViewCell{
+                var url1 : String?
+                url1 = "http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?upr_cd="
+                
                 let indexPath = tableView.indexPath(for: cell)
-                hospitalname = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "yadmNm") as! NSString as String
-                hospitalname_utf8 = hospitalname.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+                var row : Int = 0
+                row = indexPath!.row
+                
+                //hospitalname = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "yadmNm") as! NSString as String
+                //hospitalname_utf8 = hospitalname.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
                 if let detailAnimalController = segue.destination as?
                     DetailAnimalController{
-                    detailAnimalController.url = url! + "&yadmNm=" +
-                    hospitalname_utf8
+//                    detailAnimalController.url = url! + "&yadmNm=" +
+//                    hospitalname_utf8
+                    detailAnimalController.url = url1! + sido1! + "&numOfRows=" + String(row) + serviceKey1!
                 }
             }
         }

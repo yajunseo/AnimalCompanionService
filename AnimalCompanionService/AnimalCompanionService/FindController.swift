@@ -143,10 +143,12 @@ class FindController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if segue.identifier == "segueToInformationView" {
             if let navController = segue.destination as? UINavigationController{
-                if let animal2ViewController = navController.topViewController as? Animal2ViewController{
+                if let animalInfromationViewController = navController.topViewController as? AnimalInfromationViewController{
                     //animalInfromationViewController.url = url + sgguCd
-                    animal2ViewController.url = url + sido + serviceKey
+                    animalInfromationViewController.url = url + sido + serviceKey
                     //animal2ViewController.url = url
+                    animalInfromationViewController.sido1 = sido
+                    animalInfromationViewController.serviceKey1 = serviceKey
                 }
             }
         }
