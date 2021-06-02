@@ -11,6 +11,8 @@ class DetailAnimalController: UITableViewController, XMLParserDelegate {
 
     @IBOutlet weak var detailTableView: UITableView!
     
+    @IBAction func doneToDetailViewController(segue:UIStoryboardSegue){
+    }
     
     var url : String?
     var parser = XMLParser()

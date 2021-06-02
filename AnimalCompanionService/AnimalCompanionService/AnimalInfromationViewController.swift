@@ -12,6 +12,8 @@ class AnimalInfromationViewController: UITableViewController, XMLParserDelegate 
     
     @IBOutlet var tbData: UITableView!
     
+    @IBAction func doneAnimalViewController(segue:UIStoryboardSegue){
+    }
     
     var url : String?
     var sido1 : String?
@@ -178,7 +180,7 @@ class AnimalInfromationViewController: UITableViewController, XMLParserDelegate 
                 
                 let indexPath = tableView.indexPath(for: cell)
                 var row : Int = 0
-                row = indexPath!.row
+                row = indexPath!.row + 1
                 
                 //hospitalname = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "yadmNm") as! NSString as String
                 //hospitalname_utf8 = hospitalname.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!

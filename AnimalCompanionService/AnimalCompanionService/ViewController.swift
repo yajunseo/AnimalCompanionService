@@ -29,6 +29,9 @@ class ViewController: UIViewController, XMLParserDelegate, UITableViewDataSource
         tbData!.reloadData()
     }
     
+    @IBAction func doneToViewController(segue:UIStoryboardSegue){
+    }
+    
     var selectKind : String = "개"
     //xml파일을 다운로드 및 파싱하는 오브젝트
     var parser = XMLParser()

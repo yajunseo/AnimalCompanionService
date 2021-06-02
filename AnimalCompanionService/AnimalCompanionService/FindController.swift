@@ -8,7 +8,7 @@
 import UIKit
 import Speech
 class FindController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-
+    var seoul : Bool = true
     var sido : String = ""
     var sigungu : String = ""
 
@@ -26,6 +26,11 @@ class FindController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         stopButton.isEnabled = true
         try! startSession()
     }
+    
+    @IBAction func doneToPickerViewController(segue:UIStoryboardSegue){
+    }
+
+    
     @IBAction func stopTranscribing(_ sender: Any) {
         if audioEngine.isRunning{
             audioEngine.stop()
@@ -36,33 +41,43 @@ class FindController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         switch(self.myTextView.text){
         case "서울특별시" : self.pickerView1.selectRow(0, inComponent: 0, animated: true)
             sido = "6110000"
+            seoul = true
             break
         case "부산 광역시" : self.pickerView1.selectRow(1, inComponent: 0, animated: true)
             sido = "6260000"
+            seoul = false
             break
         case "대구 광역시" : self.pickerView1.selectRow(2, inComponent: 0, animated: true)
             sido = "6270000"
+            seoul = false
             break
         case "인천 광역시" : self.pickerView1.selectRow(3, inComponent: 0, animated: true)
             sido = "6280000"
+            seoul = false
             break
         case "광주 광역시" : self.pickerView1.selectRow(4, inComponent: 0, animated: true)
             sido = "6290000"
+            seoul = false
             break
         case "세종특별자치시" : self.pickerView1.selectRow(5, inComponent: 0, animated: true)
             sido = "5690000"
+            seoul = false
             break
         case "대전 광역시" : self.pickerView1.selectRow(6, inComponent: 0, animated: true)
             sido = "6300000"
+            seoul = false
             break
         case "울산 광역시" : self.pickerView1.selectRow(7, inComponent: 0, animated: true)
             sido = "6310000"
+            seoul = false
             break
         case "경기도" : self.pickerView1.selectRow(8, inComponent: 0, animated: true)
             sido = "6410000"
+            seoul = false
             break
         case "강원도" : self.pickerView1.selectRow(9, inComponent: 0, animated: true)
             sido = "6420000"
+            seoul = false
             break
         default: break
         }
@@ -117,24 +132,34 @@ class FindController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         if pickerView.tag == 0{
             if row == 0 {
                 sido = "6110000"
+                seoul = true
             }else if row == 1 {
                 sido = "6260000"
+                seoul = false
             }else if row == 2 {
                 sido = "6270000"
+                seoul = false
             }else if row == 3 {
                 sido = "6280000"
+                seoul = false
             }else if row == 4 {
                 sido = "6290000"
+                seoul = false
             }else if row == 5 {
                 sido = "5690000"
+                seoul = false
             }else if row == 6 {
                 sido = "6300000"
+                seoul = false
             }else if row == 7 {
                 sido = "6310000"
+                seoul = false
             }else if row == 8 {
                 sido = "6410000"
+                seoul = false
             }else if row == 9 {
                 sido = "6420000"
+                seoul = false
             }
             
         }
@@ -145,9 +170,18 @@ class FindController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             if let navController = segue.destination as? UINavigationController{
                 if let animalInfromationViewController = navController.topViewController as? AnimalInfromationViewController{
                     //animalInfromationViewController.url = url + sgguCd
-                    animalInfromationViewController.url = url + sido + serviceKey
-                    //animal2ViewController.url = url
-                    animalInfromationViewController.sido1 = sido
+                    
+                    //sido = "6110000"
+                    //animalInfromationViewController.url = url + sido + serviceKey
+                    if seoul == true{
+                        animalInfromationViewController.url = "http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?upr_cd=" + "6110000" + "&ServiceKey=14LZYq3Lnyj3IOVhgRlTNzGTD8cON64czIilWCGmI8%2BHRGck4fpCi%2F3v54yCMngqYnXUPy13i2jE7lvBYS4ZKQ%3D%3D"
+                        animalInfromationViewController.sido1 = "6110000"
+                    }
+                
+                    else{
+                    animalInfromationViewController.url = "http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?upr_cd=" + sido + "&ServiceKey=14LZYq3Lnyj3IOVhgRlTNzGTD8cON64czIilWCGmI8%2BHRGck4fpCi%2F3v54yCMngqYnXUPy13i2jE7lvBYS4ZKQ%3D%3D"
+                        animalInfromationViewController.sido1 = sido
+                    }
                     animalInfromationViewController.serviceKey1 = serviceKey
                 }
             }
