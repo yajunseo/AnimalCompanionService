@@ -7,10 +7,13 @@
 
 import UIKit
 import MapKit
+import Alamofire
+import SwiftyJSON
 
 class MapViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
-   
+
+    var addressString = ""
     var posts = NSMutableArray()
     
     let regionRadius: CLLocationDistance = 5000
@@ -62,8 +65,56 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let initialLocation = CLLocation(latitude: 37.5384514, longitude: 127.0709764)
+        let NAVER_CLIENT_ID = "vw8hzgh8q2"
+        let NAVER_CLIENT_SECRET = "VD3QUUpLxKIuRrs4TrrDmc6V8nJRUPNrixF5frV8"
+        let NAVER_GEOCODE_URL = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query="
+        
+        
+        
+        var 주소 = ""
+        주소 = addressString
+        let encodeAddress = 주소.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        
+        let header1 = HTTPHeader(name: "X-NCP-APIGW-API-KEY-ID", value: NAVER_CLIENT_ID)
+        let header2 = HTTPHeader(name: "X-NCP-APIGW-API-KEY", value: NAVER_CLIENT_SECRET)
+        let headers = HTTPHeaders([header1,header2])
+        
+        var initialLocation = CLLocation(latitude: 0, longitude: 0)
+        
+        AF.request(NAVER_GEOCODE_URL + encodeAddress, method: .get,headers: headers).validate()
+                .responseJSON { response in
+                    switch response.result {
+                    case .success(let value as [String:Any]):
+                        let json = JSON(value)
+                        let data = json["addresses"]
+                        let lat = data[0]["y"]
+                        let lon = data[0]["x"]
+                        //print(type(of: lat))
+                        //let vlat = lat.doubleValue
+                        //let vlon = lon.doubleValue
+                        let vlat = lat.double
+                        var vlon = lon.double
+                        print(type(of: vlat))
+                        //initialLocation = CLLocation(latitude: lat.rawValue as! CLLocationDegrees, longitude: lon.rawValue as! CLLocationDegrees)
+                        //let vlat = (data[0]["y"] as? NSString)?.doubleValue
+                        //let vlon = (data[0]["x"] as? NSString)?.doubleValue
+                        //vlon = lon.doubleValue
+                        //vlon = 129.20632609999998
+                        print("홍대입구역의","위도는", lat,"경도는", lon)
+                        initialLocation = CLLocation(latitude: vlat ?? 35.1948366, longitude: vlon ?? 129.2063261)
+                    case .failure(let error):
+                        //initialLocation = CLLocation(latitude: 37.557576, longitude: 126.9251192)
+                        print(error.errorDescription ?? "")
+                    default :
+                        //initialLocation = CLLocation(latitude: 37.557576, longitude: 126.9251192)
+                        fatalError()
+                    }
+                }
+        
+        print(addressString)
+    
+        //initialLocation = CLLocation(latitude: 35.177502399999995, longitude: 128.9170219)
+        //let initialLocation = CLLocation(latitude: 37.557576, longitude: 126.9251192)
         
         centerMapOnLocation(location: initialLocation)
         mapView.delegate = self

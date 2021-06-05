@@ -16,8 +16,8 @@ class DetailAnimalController: UITableViewController, XMLParserDelegate {
     
     var url : String?
     var parser = XMLParser()
-    let postsname : [String] = ["품종", "성별", "색상", "무게", "나이", "중성화 완료", "특징", "보호센터"]
-    var posts : [String] = ["","","","","","","",""]
+    let postsname : [String] = ["품종", "성별", "색상", "무게", "나이", "중성화 완료", "특징", "보호센터", "주소"]
+    var posts : [String] = ["","","","","","","","",""]
     var element = NSString()
 //    var yadmNm = NSMutableString()
 //    var addr = NSMutableString()
@@ -39,6 +39,7 @@ class DetailAnimalController: UITableViewController, XMLParserDelegate {
     var neutralization = NSMutableString()
     var characteristic = NSMutableString()
     var center = NSMutableString()
+    var addr = NSMutableString()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +62,7 @@ class DetailAnimalController: UITableViewController, XMLParserDelegate {
         element = elementName as NSString
         if (elementName as NSString).isEqual(to: "item")
         {
-            posts = ["","","","","","","",""]
+            posts = ["","","","","","","","",""]
             
 //            yadmNm = NSMutableString()
 //            yadmNm = ""
@@ -103,7 +104,8 @@ class DetailAnimalController: UITableViewController, XMLParserDelegate {
             characteristic = ""
             center = NSMutableString()
             center = ""
-    
+            addr = NSMutableString()
+            addr = ""
         }
     }
     
@@ -147,6 +149,8 @@ class DetailAnimalController: UITableViewController, XMLParserDelegate {
             characteristic.append(string)
         }else if element.isEqual(to: "careNm"){
             center.append(string)
+        }else if element.isEqual(to: "careAddr"){
+            addr.append(string)
         }
     }
     
@@ -210,6 +214,9 @@ class DetailAnimalController: UITableViewController, XMLParserDelegate {
             if !center.isEqual(nil){
                 posts[7] = center as String
             }
+            if !addr.isEqual(nil){
+                posts[8] = addr as String
+            }
         }
     }
     
@@ -236,6 +243,13 @@ class DetailAnimalController: UITableViewController, XMLParserDelegate {
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.identifier == "segueToMapView" {
+            if let mapViewController = segue.destination as? MapViewController{
+                mapViewController.addressString = posts[8]
+            }
+        }
+    }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
