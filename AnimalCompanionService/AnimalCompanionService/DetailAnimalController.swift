@@ -247,6 +247,7 @@ class DetailAnimalController: UITableViewController, XMLParserDelegate {
         if segue.identifier == "segueToMapView" {
             if let mapViewController = segue.destination as? MapViewController{
                 mapViewController.addressString = posts[8]
+                mapViewController.centerName = posts[7]
             }
         }
     }

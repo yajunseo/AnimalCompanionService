@@ -13,6 +13,7 @@ import SwiftyJSON
 class MapViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
 
+    var centerName = ""
     var addressString = ""
     var posts = NSMutableArray()
     
@@ -22,7 +23,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                                                       latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
             mapView.setRegion(coordinateRegion, animated: true)
         }
-    var hospitals: [Hospital] = []
+    var centers: [CenterClass] = []
     
     //PublicArt.json 파일을 파싱해서 Artwork 객체 배열 생성
     func loadInitialData() {
@@ -35,7 +36,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             let lat = (YPos as NSString).doubleValue
             let lon = (XPos as NSString).doubleValue
             let hospital = Hospital(title: yadmNm, locationName: addr, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon))
-            hospitals.append(hospital)
+            //hospitals.append(hospital)
         }
     }
     
@@ -80,6 +81,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         let headers = HTTPHeaders([header1,header2])
         
         var initialLocation = CLLocation(latitude: 0, longitude: 0)
+        var vlat = 0.0
+        var vlon = 0.0
         
         AF.request(NAVER_GEOCODE_URL + encodeAddress, method: .get,headers: headers).validate()
                 .responseJSON { response in
@@ -89,37 +92,34 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                         let data = json["addresses"]
                         let lat = data[0]["y"]
                         let lon = data[0]["x"]
-                        //print(type(of: lat))
-                        //let vlat = lat.doubleValue
-                        //let vlon = lon.doubleValue
-                        let vlat = lat.double
-                        var vlon = lon.double
-                        print(type(of: vlat))
-                        //initialLocation = CLLocation(latitude: lat.rawValue as! CLLocationDegrees, longitude: lon.rawValue as! CLLocationDegrees)
-                        //let vlat = (data[0]["y"] as? NSString)?.doubleValue
-                        //let vlon = (data[0]["x"] as? NSString)?.doubleValue
-                        //vlon = lon.doubleValue
-                        //vlon = 129.20632609999998
-                        print("홍대입구역의","위도는", lat,"경도는", lon)
-                        initialLocation = CLLocation(latitude: vlat ?? 35.1948366, longitude: vlon ?? 129.2063261)
+                        vlat = lat.doubleValue
+                        vlon = lon.doubleValue
+                        
+                        //print("홍대입구역의","위도는", lat,"경도는", lon)
+                     
+                        initialLocation = CLLocation(latitude: vlat, longitude: vlon)
+                    
+                        
+                        let cen = CenterClass(Cname: self.centerName, Caddr: self.addressString, coordinate: CLLocationCoordinate2D(latitude: vlat, longitude: vlon))
+                        self.centers.append(cen)
+                        
+                        self.centerMapOnLocation(location: initialLocation)
+                        self.mapView.delegate = self
+                        self.loadInitialData()
+                        self.mapView.addAnnotations(self.centers)
                     case .failure(let error):
-                        //initialLocation = CLLocation(latitude: 37.557576, longitude: 126.9251192)
                         print(error.errorDescription ?? "")
                     default :
-                        //initialLocation = CLLocation(latitude: 37.557576, longitude: 126.9251192)
                         fatalError()
                     }
                 }
-        
+        print("aa: ", vlat)
+        //initialLocation = CLLocation(latitude: CLLocationDegrees(vlat), longitude: CLLocationDegrees(vlon))
         print(addressString)
     
         //initialLocation = CLLocation(latitude: 35.177502399999995, longitude: 128.9170219)
         //let initialLocation = CLLocation(latitude: 37.557576, longitude: 126.9251192)
-        
-        centerMapOnLocation(location: initialLocation)
-        mapView.delegate = self
-        loadInitialData()
-        mapView.addAnnotations(hospitals)
+    
         // Do any additional setup after loading the view.
     }
     
