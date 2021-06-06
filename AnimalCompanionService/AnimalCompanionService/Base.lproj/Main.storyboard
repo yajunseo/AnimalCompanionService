@@ -51,43 +51,6 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="7sJ-29-3fg"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YZI-DP-mhE">
-                                <rect key="frame" x="16" y="797" width="130" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
-                                <state key="normal" title="개"/>
-                                <connections>
-                                    <action selector="dogTab:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N84-c6-yzC"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3oe-yO-0Qf">
-                                <rect key="frame" x="146" y="797" width="130" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
-                                <state key="normal" title="고양이"/>
-                                <connections>
-                                    <action selector="catTab:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yab-Fb-GtM"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oKv-aO-mKY">
-                                <rect key="frame" x="272" y="797" width="130" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
-                                <state key="normal" title="기타"/>
-                                <connections>
-                                    <action selector="defaultTab:" destination="BYZ-38-t0r" eventType="touchUpInside" id="keg-BT-ZGv"/>
-                                </connections>
-                            </button>
-                            <tabBar contentMode="scaleToFill" id="3eb-PK-i3M">
-                                <rect key="frame" x="16" y="847" width="383" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <tabBarItem title="개" id="1fd-c6-ylf"/>
-                                    <tabBarItem title="고양이" id="Ftp-Y0-QFp"/>
-                                    <tabBarItem title="기타" id="5xM-GV-fsm"/>
-                                </items>
-                            </tabBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -250,6 +213,41 @@
                                     <action selector="stopTranscribing:" destination="EDy-Rk-ioy" eventType="touchUpInside" id="85R-uk-bb1"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="87c-Q1-K58">
+                                <rect key="frame" x="159" y="510" width="126" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Y"/>
+                                    <segment title="N"/>
+                                </segments>
+                                <connections>
+                                    <action selector="sgNeuter:" destination="EDy-Rk-ioy" eventType="valueChanged" id="diN-ss-zSu"/>
+                                </connections>
+                            </segmentedControl>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="중성화 여부" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WuT-L3-yk1">
+                                <rect key="frame" x="30" y="510" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="축종" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MJL-XC-8HD">
+                                <rect key="frame" x="30" y="570" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PTm-J4-qcR">
+                                <rect key="frame" x="159" y="570" width="187" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="강아지"/>
+                                    <segment title="고양이"/>
+                                    <segment title="기타"/>
+                                </segments>
+                                <connections>
+                                    <action selector="sgKind:" destination="EDy-Rk-ioy" eventType="valueChanged" id="aTO-dI-cDt"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hfe-bO-kOq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -495,9 +493,6 @@
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

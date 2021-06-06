@@ -11,7 +11,26 @@ class FindController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var seoul : Bool = true
     var sido : String = ""
     var sigungu : String = ""
-
+    var neuter : String = "&neuter_yn=Y"
+    var animalKind : String = "&upkind=417000"
+    
+    @IBAction func sgNeuter(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0{
+            neuter = "&neuter_yn=Y"
+        } else if sender.selectedSegmentIndex == 1{
+            neuter = "&neuter_yn=N"
+        }
+    }
+    
+    @IBAction func sgKind(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0{
+            animalKind = "&upkind=417000"
+        } else if sender.selectedSegmentIndex == 1{
+            animalKind = "&upkind=422400"
+        }else if sender.selectedSegmentIndex == 2{
+            animalKind = "&upkind=429900"
+        }
+    }
     var url : String = "http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?upr_cd="
     
     var serviceKey : String =
@@ -174,13 +193,17 @@ class FindController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                     //sido = "6110000"
                     //animalInfromationViewController.url = url + sido + serviceKey
                     if seoul == true{
-                        animalInfromationViewController.url = "http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?upr_cd=" + "6110000" + "&ServiceKey=14LZYq3Lnyj3IOVhgRlTNzGTD8cON64czIilWCGmI8%2BHRGck4fpCi%2F3v54yCMngqYnXUPy13i2jE7lvBYS4ZKQ%3D%3D"
+                        animalInfromationViewController.url = "http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?upr_cd=" + "6110000" + neuter + animalKind + "&ServiceKey=14LZYq3Lnyj3IOVhgRlTNzGTD8cON64czIilWCGmI8%2BHRGck4fpCi%2F3v54yCMngqYnXUPy13i2jE7lvBYS4ZKQ%3D%3D"
                         animalInfromationViewController.sido1 = "6110000"
+                        
+                        print("1  ", neuter, animalKind)
                     }
                 
                     else{
-                    animalInfromationViewController.url = "http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?upr_cd=" + sido + "&ServiceKey=14LZYq3Lnyj3IOVhgRlTNzGTD8cON64czIilWCGmI8%2BHRGck4fpCi%2F3v54yCMngqYnXUPy13i2jE7lvBYS4ZKQ%3D%3D"
+                    animalInfromationViewController.url = "http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?upr_cd=" + sido + neuter + animalKind + "&ServiceKey=14LZYq3Lnyj3IOVhgRlTNzGTD8cON64czIilWCGmI8%2BHRGck4fpCi%2F3v54yCMngqYnXUPy13i2jE7lvBYS4ZKQ%3D%3D"
                         animalInfromationViewController.sido1 = sido
+                        
+                        print("2  ", neuter, animalKind)
                     }
                     animalInfromationViewController.serviceKey1 = serviceKey
                 }
