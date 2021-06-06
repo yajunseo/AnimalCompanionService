@@ -18,6 +18,9 @@ class AnimalInfromationViewController: UITableViewController, XMLParserDelegate 
     var url : String?
     var sido1 : String?
     var serviceKey1 : String?
+    var  neuter1: String?
+    var animalKind1 : String?
+    var sigun : String?
     
     //xml파일을 다운로드 및 파싱하는 오브젝트
     var parser = XMLParser()
@@ -188,7 +191,16 @@ class AnimalInfromationViewController: UITableViewController, XMLParserDelegate 
                     DetailAnimalController{
 //                    detailAnimalController.url = url! + "&yadmNm=" +
 //                    hospitalname_utf8
-                    detailAnimalController.url = url1! + sido1! + "&numOfRows=" + String(row) + serviceKey1!
+                    
+                    if(sigun == "Seoul")
+                    {
+                        detailAnimalController.url = url1! + "6110000" + neuter1! + animalKind1! + "&numOfRows=" + String(row) + serviceKey1!
+                        print("Seoul")
+                    }
+                    else
+                    {
+                        detailAnimalController.url = url1! + sido1! + neuter1! + animalKind1! + "&numOfRows=" + String(row) + serviceKey1!
+                    }
                 }
             }
         }

@@ -13,6 +13,8 @@
 		A19CDC16264D01000047BB1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A19CDC14264D01000047BB1A /* Main.storyboard */; };
 		A19CDC18264D01010047BB1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A19CDC17264D01010047BB1A /* Assets.xcassets */; };
 		A19CDC1B264D01010047BB1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A19CDC19264D01010047BB1A /* LaunchScreen.storyboard */; };
+		A1BC183E266D045F0078A2C1 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BC183D266D045F0078A2C1 /* StartViewController.swift */; };
+		A1BC1840266D07380078A2C1 /* 강아지2.png in Resources */ = {isa = PBXBuildFile; fileRef = A1BC183F266D07380078A2C1 /* 강아지2.png */; };
 		A1DB9CD72650FFE7007E8C27 /* AnimalInfromationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB9CD62650FFE7007E8C27 /* AnimalInfromationViewController.swift */; };
 		A1DB9CDE26510438007E8C27 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB9CDD26510438007E8C27 /* MapViewController.swift */; };
 		A1DB9CE526514B12007E8C27 /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB9CE426514B12007E8C27 /* Animal.swift */; };
@@ -32,6 +34,8 @@
 		A19CDC17264D01010047BB1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A19CDC1A264D01010047BB1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A19CDC1C264D01010047BB1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1BC183D266D045F0078A2C1 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		A1BC183F266D07380078A2C1 /* 강아지2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "강아지2.png"; sourceTree = "<group>"; };
 		A1DB9CD62650FFE7007E8C27 /* AnimalInfromationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalInfromationViewController.swift; sourceTree = "<group>"; };
 		A1DB9CDD26510438007E8C27 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		A1DB9CE426514B12007E8C27 /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
@@ -94,6 +98,7 @@
 		A19CDC0D264D01000047BB1A /* AnimalCompanionService */ = {
 			isa = PBXGroup;
 			children = (
+				A1BC183F266D07380078A2C1 /* 강아지2.png */,
 				A19CDC0E264D01000047BB1A /* AppDelegate.swift */,
 				A19CDC10264D01000047BB1A /* SceneDelegate.swift */,
 				A19CDC12264D01000047BB1A /* ViewController.swift */,
@@ -108,6 +113,7 @@
 				A1DC18142662774F00BF470E /* DetailAnimalController.swift */,
 				A1DC181C2662B4A300BF470E /* Animal2ViewController.swift */,
 				A1E57872266BC171007594A6 /* Center.swift */,
+				A1BC183D266D045F0078A2C1 /* StartViewController.swift */,
 			);
 			path = AnimalCompanionService;
 			sourceTree = "<group>";
@@ -174,6 +180,7 @@
 				A19CDC1B264D01010047BB1A /* LaunchScreen.storyboard in Resources */,
 				A19CDC18264D01010047BB1A /* Assets.xcassets in Resources */,
 				A19CDC16264D01000047BB1A /* Main.storyboard in Resources */,
+				A1BC1840266D07380078A2C1 /* 강아지2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +238,7 @@
 				A1DC181D2662B4A300BF470E /* Animal2ViewController.swift in Sources */,
 				A1DC18152662774F00BF470E /* DetailAnimalController.swift in Sources */,
 				A19CDC0F264D01000047BB1A /* AppDelegate.swift in Sources */,
+				A1BC183E266D045F0078A2C1 /* StartViewController.swift in Sources */,
 				A19CDC11264D01000047BB1A /* SceneDelegate.swift in Sources */,
 				A1F40C622654DDD800C9C91C /* FindController.swift in Sources */,
 				A1DB9CDE26510438007E8C27 /* MapViewController.swift in Sources */,

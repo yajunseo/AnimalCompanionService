@@ -195,14 +195,18 @@ class FindController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                     if seoul == true{
                         animalInfromationViewController.url = "http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?upr_cd=" + "6110000" + neuter + animalKind + "&ServiceKey=14LZYq3Lnyj3IOVhgRlTNzGTD8cON64czIilWCGmI8%2BHRGck4fpCi%2F3v54yCMngqYnXUPy13i2jE7lvBYS4ZKQ%3D%3D"
                         animalInfromationViewController.sido1 = "6110000"
-                        
+                        animalInfromationViewController.neuter1 = neuter
+                        animalInfromationViewController.animalKind1 = animalKind
+                        animalInfromationViewController.sigun = "Seoul"
                         print("1  ", neuter, animalKind)
                     }
                 
                     else{
                     animalInfromationViewController.url = "http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?upr_cd=" + sido + neuter + animalKind + "&ServiceKey=14LZYq3Lnyj3IOVhgRlTNzGTD8cON64czIilWCGmI8%2BHRGck4fpCi%2F3v54yCMngqYnXUPy13i2jE7lvBYS4ZKQ%3D%3D"
                         animalInfromationViewController.sido1 = sido
-                        
+                        animalInfromationViewController.neuter1 = neuter
+                        animalInfromationViewController.animalKind1 = animalKind
+                        animalInfromationViewController.sigun = "Nseoul"
                         print("2  ", neuter, animalKind)
                     }
                     animalInfromationViewController.serviceKey1 = serviceKey
